@@ -32,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
                 chaine = editText.getText().toString();
 
                 Matrice matrice = new Matrice();
-                //maMatrice = matrice.recupMat(chaine);
-                text.setText(matrice.recupMat(chaine) + " itworks !");
+                maMatrice = matrice.recupMat(chaine);
+
+                text.setText(" itworks !");
             }
         });
     }

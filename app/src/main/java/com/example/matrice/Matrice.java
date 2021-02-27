@@ -3,7 +3,7 @@ package com.example.matrice;
 public class Matrice {
 
     // Récupération d'une matrice
-    public String recupMat (String chaine) {
+    public double[][] recupMat (String chaine) {
 
         // Eliminer tout espace inutil
         chaine = chaine.replaceAll(" {2,}", " ").replaceAll(" ,", ",").replaceAll(", ", ",");
@@ -31,16 +31,19 @@ public class Matrice {
 
         // Récupération
 
-        int i = 0, j;
+        int i = 0, j, k = 0;
         while (i < m) {
             j = 0;
             while (j < n) {
-                matrice[i][j] = Double.parseDouble(tab0[0]);
-                j++;
+
+                // Récupération des valeurs de << tableau >> converties en << double >>
+                matrice[i][j] = Double.parseDouble(tableau[k]);
+                j++; k++;
             }
             i++;
         }
 
-        return tableau[2];
+        // Matrice de retour
+        return matrice;
     }
 }
