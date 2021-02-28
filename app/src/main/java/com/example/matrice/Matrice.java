@@ -47,6 +47,19 @@ public class Matrice {
         return matrice;
     }
 
+    // Fonction de vérification d'entiers
+    public boolean isint (double valeur) {
+
+        boolean verification = false;
+        int intValeur = (int) valeur;
+
+        if (valeur == intValeur) {
+            verification = true;
+        }
+
+        return verification;
+    }
+
     // Fonction d'affichage d'une matrice
     public String afficher_matrice (double matrice [][]) {
 
@@ -57,7 +70,11 @@ public class Matrice {
         while (i < m) {
             j = 0;
             while (j < n) {
-                chaine += matrice[i][j] + "     ";
+                if (this.isint(matrice[i][j])) {
+                    chaine += (int) matrice[i][j] + "     ";
+                } else {
+                    chaine += matrice[i][j] + "     ";
+                }
                 j++;
             }
             chaine += "\n\n";
