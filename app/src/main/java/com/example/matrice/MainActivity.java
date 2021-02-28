@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                         Mamatrice1 = matrice.afficher_matrice(maMatrice1);
                         Mamatrice2 = matrice.afficher_matrice(maMatrice2);
                         text1.setText(" itworks !\n\n" + Mamatrice1);
-                        text2.setText(" itworks !\n\n" + Mamatrice2);
+                        text2.setText(" itworks !\n\n" + Mamatrice2 + "\n\n" + matrice.afficher_matrice(matrice.somme(maMatrice1, maMatrice2)));
                     } else {
                         text2.setText("Erreur !");
                     }
