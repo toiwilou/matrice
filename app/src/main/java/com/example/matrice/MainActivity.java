@@ -32,11 +32,14 @@ public class MainActivity extends AppCompatActivity {
                 chaine = editText.getText().toString();
 
                 Matrice matrice = new Matrice();
-                maMatrice = matrice.recupMat(chaine);
 
-                Mamatrice = matrice.afficher_matrice(maMatrice);
-
-                text.setText(" itworks !\n\n" + Mamatrice);
+                if (matrice.validation(chaine)) {
+                    maMatrice = matrice.recupMat(chaine);
+                    Mamatrice = matrice.afficher_matrice(maMatrice);
+                    text.setText(" itworks !\n\n" + Mamatrice);
+                } else {
+                    text.setText("Erreur !\n\n");
+                }
             }
         });
     }

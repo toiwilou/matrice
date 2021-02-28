@@ -2,6 +2,59 @@ package com.example.matrice;
 
 public class Matrice {
 
+    // Fonction de validation
+    public boolean validation (String chaine) {
+
+        chaine = chaine.replaceAll(" {2,}", " ").replaceAll(" ,", ",").replaceAll(", ", ",");
+        String tableau [] = chaine.split(",");
+        boolean validation = false;
+        int dim [] = new int[tableau.length];
+
+        int k = 0;
+        while (k < tableau.length) {
+            dim [k] = tableau[k].split(" ").length;
+            if (k == 0 || (k > 0 && dim[k] == dim[k-1])) {
+
+                String chaines [] = chaine.replaceAll(",", " ").split(" ");
+                int longueur = chaines.length;
+
+                if (longueur > 1 && longueur < 17 && (longueur == 3 || longueur == 9 || longueur % 2 == 0)) {
+
+                    int i = 0;
+                    while (i < longueur) {
+
+                        if (chaines[i].isEmpty()) {
+                            validation = false;
+                            break;
+                        } else {
+                            try {
+                                Double.parseDouble(chaines[i]);
+                                if (chaines[i].length() <= 8) {
+                                    validation = true;
+                                } else {
+                                    validation = false;
+                                    break;
+                                }
+                            } catch (NumberFormatException e) {
+                                validation = false;
+                                break;
+                            }
+                        }
+                        i++;
+                    }
+                } else {
+                    validation = false;
+                }
+            } else {
+                validation = false;
+                break;
+            }
+            k++;
+        }
+
+        return validation;
+    }
+
     // Récupération d'une matrice
     public double[][] recupMat (String chaine) {
 
