@@ -46,4 +46,24 @@ public class Matrice {
         // Matrice de retour
         return matrice;
     }
+
+    // Fonction d'affichage d'une matrice
+    public String afficher_matrice (double matrice [][]) {
+
+        String chaine = "";
+        int m = matrice.length, n = matrice[0].length;
+
+        int i = 0, j;
+        while (i < m) {
+            j = 0;
+            while (j < n) {
+                chaine += matrice[i][j] + "     ";
+                j++;
+            }
+            chaine += "\n\n";
+            i++;
+        }
+
+        return chaine;
+    }
 }

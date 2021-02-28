@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     Button bouton;
     TextView text;
     EditText editText;
-    String chaine;
+    String chaine, Mamatrice;
     double maMatrice[][];
 
     @Override
@@ -34,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
                 Matrice matrice = new Matrice();
                 maMatrice = matrice.recupMat(chaine);
 
-                text.setText(" itworks !");
+                Mamatrice = matrice.afficher_matrice(maMatrice);
+
+                text.setText(" itworks !\n\n" + Mamatrice);
             }
         });
     }
