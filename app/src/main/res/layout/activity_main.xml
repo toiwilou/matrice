@@ -15,7 +15,14 @@ android:fillViewport="true">
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/input"
+            android:id="@+id/input1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:maxLength="150" />
+
+        <EditText
+            android:id="@+id/input2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
@@ -31,7 +38,14 @@ android:fillViewport="true">
             android:textSize="22dp" />
 
         <TextView
-            android:id="@+id/mytext"
+            android:id="@+id/mytext1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp" />
+
+        <TextView
+            android:id="@+id/mytext2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

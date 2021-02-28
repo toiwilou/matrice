@@ -55,6 +55,18 @@ public class Matrice {
         return validation;
     }
 
+    // Fonction de validation de matrices pour la somme
+    public boolean validationSomme (double mat1 [][], double mat2 [][]) {
+
+        boolean valSom = false;
+        int m1 = mat1.length, m2 = mat2.length, n1 = mat1[0].length, n2 = mat2[0].length;
+        if (m1 == m2 && n1 == n2) {
+            valSom = true;
+        }
+
+        return valSom;
+    }
+
     // Récupération d'une matrice
     public double[][] recupMat (String chaine) {
 

@@ -11,10 +11,13 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     Button bouton;
-    TextView text;
-    EditText editText;
-    String chaine, Mamatrice;
-    double maMatrice[][];
+    TextView text1;
+    TextView text2;
+    EditText editText1;
+    EditText editText2;
+    String chaine1, chaine2, Mamatrice1, Mamatrice2;
+    double maMatrice1 [][];
+    double maMatrice2 [][];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,23 +25,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bouton = findViewById(R.id.bouton);
-        text = findViewById(R.id.mytext);
+        text1 = findViewById(R.id.mytext1);
+        text2 = findViewById(R.id.mytext2);
 
         bouton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                editText = findViewById(R.id.input);
-                chaine = editText.getText().toString();
+                editText1 = findViewById(R.id.input1);
+                editText2 = findViewById(R.id.input2);
+                chaine1 = editText1.getText().toString();
+                chaine2 = editText2.getText().toString();
 
                 Matrice matrice = new Matrice();
 
-                if (matrice.validation(chaine)) {
-                    maMatrice = matrice.recupMat(chaine);
-                    Mamatrice = matrice.afficher_matrice(maMatrice);
-                    text.setText(" itworks !\n\n" + Mamatrice);
+                if (matrice.validation(chaine1) && matrice.validation(chaine2)) {
+                    maMatrice1 = matrice.recupMat(chaine1);
+                    maMatrice2 = matrice.recupMat(chaine2);
+                    if (matrice.validationSomme(maMatrice1, maMatrice2)) {
+                        Mamatrice1 = matrice.afficher_matrice(maMatrice1);
+                        Mamatrice2 = matrice.afficher_matrice(maMatrice2);
+                        text1.setText(" itworks !\n\n" + Mamatrice1);
+                        text2.setText(" itworks !\n\n" + Mamatrice2);
+                    } else {
+                        text2.setText("Erreur !");
+                    }
                 } else {
-                    text.setText("Erreur !\n\n");
+                    text1.setText("Erreur !\n\n");
                 }
             }
         });
