@@ -11,12 +11,6 @@ public class Matrice {
         // Explosion de la chaine en tableau par les virgules
         String tab [] = chaine.split(",");
 
-        // Remplacer les espaces par des virgules
-        String nouvelleChaine  = chaine.replaceAll(" ", ",");
-
-        // Explosion de la nouvelle chaine en tableau par les virgules
-        String tableau [] = nouvelleChaine.split(",");
-
         // Nombre de lignes
         int m = tab.length;
 
@@ -25,6 +19,12 @@ public class Matrice {
 
         // Nombre de colonnes
         int n = tab0.length;
+
+        // Remplacer les espaces par des virgules
+        String nouvelleChaine  = chaine.replaceAll(" ", ",");
+
+        // Explosion de la nouvelle chaine en tableau par les virgules
+        String tableau [] = nouvelleChaine.split(",");
 
         // Déclaration de la matrice de retour
         double matrice [][] = new double[m][n];
