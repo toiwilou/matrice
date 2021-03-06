@@ -38,18 +38,10 @@ public class MainActivity extends AppCompatActivity {
                 chaine2 = editText2.getText().toString();
 
                 Matrice matrice = new Matrice();
+                OperationsMatriceCarree opMatCar = new OperationsMatriceCarree();
 
-                if (matrice.validation(chaine1) && matrice.validation(chaine2)) {
-                    maMatrice1 = matrice.recupMat(chaine1);
-                    maMatrice2 = matrice.recupMat(chaine2);
-                    if (matrice.validationSomme(maMatrice1, maMatrice2)) {
-                        Mamatrice1 = matrice.afficher_matrice(maMatrice1);
-                        Mamatrice2 = matrice.afficher_matrice(maMatrice2);
-                        text1.setText(" itworks !\n\n" + Mamatrice1);
-                        text2.setText(" itworks !\n\n" + Mamatrice2 + "\n\n" + matrice.afficher_matrice(matrice.somme(maMatrice1, maMatrice2)));
-                    } else {
-                        text2.setText("Erreur !");
-                    }
+                if (matrice.validation(chaine1)) {
+                    text1.setText("it works !\n\n" + opMatCar.determinant(matrice.recupMat(chaine1)));
                 } else {
                     text1.setText("Erreur !\n\n");
                 }

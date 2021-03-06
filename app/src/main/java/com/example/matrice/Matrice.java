@@ -67,6 +67,18 @@ public class Matrice {
         return valSom;
     }
 
+    // Fonction de validation de matrices pour le produit
+    public boolean validationProduit (double Mat1 [][], double Mat2 [][]) {
+
+        boolean valPro = false;
+        int m = Mat2.length, n = Mat1 [0].length;
+        if (m == n) {
+            valPro = true;
+        }
+
+        return valPro;
+    }
+
     // Récupération d'une matrice
     public double[][] recupMat (String chaine) {
 
@@ -128,10 +140,9 @@ public class Matrice {
     // Fonction qui fait la somme de deux matrices
     public double [][] somme (double [][] matrice1, double [][] matrice2) {
 
-        int m = matrice1.length, n = matrice1[0].length;
+        int i = 0, j, m = matrice1.length, n = matrice1[0].length;
         double sommeMatrice [][] = new double [m][n];
 
-        int i = 0, j;
         while (i < m) {
             j = 0;
             while (j < n) {
@@ -142,6 +153,28 @@ public class Matrice {
         }
 
         return sommeMatrice;
+    }
+
+    // Fonction qui fait le produit de deux matrices
+    public double [][] produit (double matrix1 [][], double matrix2 [][]) {
+
+        int i = 0, j, k, m = matrix1.length, n = matrix2 [0].length, p = matrix2.length;
+        double produitMatrice [][] = new double [m][n];
+
+        while (i < m) {
+            j = 0;
+            while (j < n) {
+                k = 0;
+                while (k < p) {
+                    produitMatrice [i][j] +=  matrix1 [i][k] * matrix2 [k][j];
+                    k++;
+                }
+                j++;
+            }
+            i++;
+        }
+
+        return produitMatrice;
     }
 
     // Fonction d'affichage d'une matrice
